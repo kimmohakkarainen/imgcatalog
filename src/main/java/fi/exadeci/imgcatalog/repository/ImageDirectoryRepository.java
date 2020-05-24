@@ -6,4 +6,5 @@ import fi.exadeci.imgcatalog.model.ImageDirectory;
 
 public interface ImageDirectoryRepository extends CrudRepository<ImageDirectory, Long> {
 
+	public void flush();
 }

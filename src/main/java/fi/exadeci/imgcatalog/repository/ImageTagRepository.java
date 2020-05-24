@@ -2,9 +2,9 @@ package fi.exadeci.imgcatalog.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import fi.exadeci.imgcatalog.model.ImageFile;
+import fi.exadeci.imgcatalog.model.ImageTag;
 
-public interface ImageFileRepository extends CrudRepository<ImageFile, Long> {
+public interface ImageTagRepository extends CrudRepository<ImageTag, Long> {
 	
 	public void flush();
 

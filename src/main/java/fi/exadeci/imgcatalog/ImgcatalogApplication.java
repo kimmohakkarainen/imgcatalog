@@ -1,7 +1,10 @@
 package fi.exadeci.imgcatalog;
 
+import java.security.MessageDigest;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class ImgcatalogApplication {
@@ -10,4 +13,9 @@ public class ImgcatalogApplication {
 		SpringApplication.run(ImgcatalogApplication.class, args);
 	}
 
+	
+	@Bean
+	public MessageDigest getMD5MessageDigest() throws Exception {
+		return MessageDigest.getInstance("MD5"); 
+	}
 }
