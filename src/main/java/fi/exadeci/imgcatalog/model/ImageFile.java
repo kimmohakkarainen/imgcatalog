@@ -15,7 +15,7 @@ public class ImageFile {
 	private long imageFileId;
 	
 	@Column
-	private String path;
+	private String name;
 	
 	@Column
 	private String hash;
@@ -24,29 +24,46 @@ public class ImageFile {
 	@JoinColumn(name="volumeId", nullable=false)
 	private Volume volume;
 	
-	public static ImageFile create(Volume volume, String path, String hash) {
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="directoryId", nullable=false)
+	private ImageDirectory directory;
+	
+	
+	public static ImageFile create(Volume volume, ImageDirectory directory, String name, String hash) {
 		ImageFile file = new ImageFile();
 		file.volume = volume;
-		file.path = path;
+		file.directory = directory;
+		file.name = name;
 		file.hash = hash;
 		
 		return file;
 	}
 
+
 	public long getImageFileId() {
 		return imageFileId;
 	}
 
-	public String getPath() {
-		return path;
+
+	public String getName() {
+		return name;
 	}
+
 
 	public String getHash() {
 		return hash;
 	}
 
+
 	public Volume getVolume() {
 		return volume;
 	}
+
+
+	public ImageDirectory getDirectory() {
+		return directory;
+	}
 	
+	
+
 }

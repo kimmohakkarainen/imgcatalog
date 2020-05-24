@@ -21,7 +21,10 @@ public class Volume {
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="volume")
 	private List<ImageFile> imageFiles = new ArrayList<>();
-	
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="volume")
+	private List<ImageDirectory> imageDirectories = new ArrayList<>();
+
 	public static Volume create(String description) {
 		Volume volume = new Volume();
 		volume.description = description;
@@ -34,6 +37,10 @@ public class Volume {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public List<ImageDirectory> getImageDirectories() {
+		return imageDirectories;
 	}
 
 	public List<ImageFile> getImageFiles() {

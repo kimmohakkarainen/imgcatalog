@@ -17,7 +17,7 @@ public class VolumeController {
 	@Autowired
 	private VolumeService service;
 	
-	@RequestMapping(value = "/rest/project", method = RequestMethod.GET)
+	@RequestMapping(value = "/rest/volume", method = RequestMethod.GET)
 	public @ResponseBody Volume createVolume() throws Exception {
 		
 		return service.createVolume();
