@@ -52,11 +52,11 @@ public class VolumeService {
 
 
 	@Transactional(readOnly = false)
-	public Volume createVolume(String directory) throws IOException, ImageProcessingException {
+	public Volume createVolume(String directory, String description) throws IOException, ImageProcessingException {
 
 		File file = new File(directory);
 
-		Volume volume = dirService.createVolume(directory);
+		Volume volume = dirService.createVolume(directory, description);
 
 		if(file.isDirectory()) {
 			recurseImageDirectory(volume, file);

@@ -7,5 +7,5 @@ import fi.exadeci.imgcatalog.model.ImageFile;
 public interface ImageFileRepository extends CrudRepository<ImageFile, Long> {
 	
 	public void flush();
-
+	
 }

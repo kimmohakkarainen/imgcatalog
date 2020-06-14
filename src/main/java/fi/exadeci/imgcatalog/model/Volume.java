@@ -17,6 +17,9 @@ public class Volume {
 	private long volumeId;
 	
 	@Column(nullable=false)
+	private String path;
+
+	@Column(nullable=false)
 	private String description;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="volume")
@@ -25,14 +28,19 @@ public class Volume {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="volume")
 	private List<ImageDirectory> imageDirectories = new ArrayList<>();
 
-	public static Volume create(String description) {
+	public static Volume create(String path, String description) {
 		Volume volume = new Volume();
+		volume.path = path;
 		volume.description = description;
 		return volume;
 	}
 
 	public long getVolumeId() {
 		return volumeId;
+	}
+
+	public String getPath() {
+		return path;
 	}
 
 	public String getDescription() {

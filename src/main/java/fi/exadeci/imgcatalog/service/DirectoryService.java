@@ -65,8 +65,8 @@ public class DirectoryService {
 
 
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)	
-	public Volume createVolume(String directory) {
-		Volume volume = Volume.create(directory);
+	public Volume createVolume(String path, String description) {
+		Volume volume = Volume.create(path, description);
 
 		volRepo.save(volume);
 		volRepo.flush();
